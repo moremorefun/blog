@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JSON-to-Go: JSON to Go 转换工具</title>
+		<meta charset="UTF-8">
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('./sw.js').then(function(reg) {
+					console.log('Successfully registered service worker', reg);
+				}).catch(function(err) {
+					console.warn('Error whilst registering service worker', err);
+				})
+			}
+		</script>
+		<script src="resources/js/jquery.min.js"></script>
+		<script src="resources/js/highlight.min.js"></script>
+		<script src="resources/js/json-to-go.js"></script>
+		<script src="resources/js/common.js"></script>
+		<script src="resources/js/gofmt.js" async></script>
+		<link rel="stylesheet" href="resources/css/tomorrow.highlight.css">
+		<link rel="stylesheet" href="resources/css/common.css">
+	</head>
+	<body>
+		<header>
+			<div class="intro">
+				<div class="title">
+					<h1>JSON-to-Go</h1>
+					<h2>将 JSON 转换为 Go struct</h2>
+				</div>
+				<div>
+					<p>
+						该工具可将JSON转换为Go Struct 定义。 在左侧粘贴JSON结构，将在右侧生成等效的Go Struct，您可以将其粘贴到程序中。 该脚本在某些情况下会不太准确，因此请仔细检查输出！
+					</p>
+					<p>
+						例如, 转换 JSON <a href="javascript:" id="sample1">SmartyStreets API</a> 或者 <a href="javascript:" id="sample2">GitHub API</a>.
+					</p>
+					<p>
+						&copy; 2020 <a href="javascript:" id="dark">黑暗模式</a>
+					</p>
+				</div>
+				<div>
+					<img src="resources/images/json-to-go.png" id="brand">
+				</div>
+			</div>
+		</header>
+		<table>
+			<tr>
+				<th style="width: 45%;">JSON</th>
+				<th style="width: 10%; font-size: 22px;">&#8594;</th>
+				<th style="width: 45%;">Go <label><input type="checkbox" id="inline" checked>内联模式</label> <span class="copy" id="copy-btn">复制到剪切板</span></th>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td style="width: 50%;">
+					<div id="input" contenteditable></div>
+				</td>
+				<td style="width: 50%;">
+					<div id="output"></div>
+				</td>
+			</tr>
+		</table>
+
+		<footer>
+			&copy; 2020 那些年我们De过的Bug
+			<br>
+		</footer>
+	</body>
+</html>
