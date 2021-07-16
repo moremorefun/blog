@@ -1,7 +1,7 @@
 ---
 author: admin
 comments: true
-date: 2012-09-25 13:02:50+00:00
+date: 2012-09-25 13:02:50
 layout: post
 slug: asunit-asynchronous-test
 title: asunit异步测试
